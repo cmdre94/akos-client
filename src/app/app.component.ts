@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  template: `<div>Hello {{value}}</div>`,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  value = 'World';
+  title = 'AVA';
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.navigate(['']);
+  }
 }
