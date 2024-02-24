@@ -11,9 +11,11 @@ import { ImagesViewComponent } from './views/images-view/images-view.component';
 import { WritingViewComponent } from './views/writing-view/writing-view.component';
 import { DataViewComponent } from './views/data-view/data-view.component';
 import { SpacingComponent } from './components/spacing/spacing.component';
+import { CardComponent } from './components/card/card.component';
+import { StrugglesOfTranslationViewComponent } from './views/struggles-of-translation-view/struggles-of-translation-view.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, LinkComponent, HomepageViewComponent, LawViewComponent, ImagesViewComponent, WritingViewComponent, DataViewComponent, SpacingComponent],
+  declarations: [AppComponent, NavbarComponent, LinkComponent, HomepageViewComponent, LawViewComponent, ImagesViewComponent, WritingViewComponent, DataViewComponent, SpacingComponent, CardComponent, StrugglesOfTranslationViewComponent],
   imports: [
     BrowserModule,
     AppRoutingModule
