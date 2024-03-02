@@ -14,7 +14,7 @@ export class GetDetailsService {
   private httpSubscription: Subscription;
   private isSuccessfullyCompleted: boolean = false;
   private apiResults: StandardPostResponse = null;
-  private serverUrl: string = window.location.href.includes('localhost') ? 'http://localhost:8000' : 'http://akos-backend.azurewebsites.net';
+  private serverUrl: string = window.location.href.includes('localhost') ? 'http://localhost:8000' : 'https://akos-backend.azurewebsites.net';
 
   constructor(
     private http: HttpClient
