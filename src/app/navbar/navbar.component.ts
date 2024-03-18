@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  public activeRoute: string;
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +20,6 @@ export class NavbarComponent implements OnInit {
    */
   public routeToView(url: string): void {
     this.router.navigate([url]);
+    this.activeRoute = url;
   }
 }

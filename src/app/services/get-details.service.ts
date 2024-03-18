@@ -3,6 +3,7 @@ import { BehaviorSubject, Subscription, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { StandardPostResponse } from './standard-post.model';
+import { GetDetails } from './get-details.model';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class GetDetailsService {
   private loadingChanged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private httpSubscription: Subscription;
   private isSuccessfullyCompleted: boolean = false;
-  private apiResults: StandardPostResponse = null;
+  private apiResults: GetDetails = null;
   private serverUrl: string = window.location.href.includes('localhost') ? 'http://localhost:8000' : 'https://akos-backend.azurewebsites.net';
 
   constructor(
@@ -71,9 +72,9 @@ export class GetDetailsService {
 
   /**
    * @description - returning the result.
-   * @returns {StandardPostResponse} - returns the API result.
+   * @returns {GetDetails} - returns the API result.
    */
-  public getResults(): StandardPostResponse {
+  public getResults(): GetDetails {
     return this.apiResults;
   }
 
@@ -92,17 +93,17 @@ export class GetDetailsService {
       }
       this.updateLoading(true);
       const payload: Object = {
-        data: data
+        data,
       };
       let fullUrl: string = `${serverHost}`;
       this.httpSubscription = this.http.post(`${fullUrl}`, payload).subscribe(
         (response: any) => {
-          this.apiResults = new StandardPostResponse(response);
+          this.apiResults = new GetDetails(response);
           this.isSuccessfullyCompleted = true;
           this.updateLoading(false);
         },
         (error: any) => {
-          this.apiResults = new StandardPostResponse(error);
+          this.apiResults = new GetDetails(error);
           this.isSuccessfullyCompleted = false;
           this.updateLoading(false);
         }

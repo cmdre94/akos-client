@@ -24,6 +24,8 @@ export class LinkComponent implements OnInit {
   @Input() public isExternalLink: boolean;
   @Input() public smFont: boolean;
   @Input() public addPlugin: boolean;
+  @Input() public isActive: boolean;
+  @Input() public url: string;
 
   constructor() { }
 
