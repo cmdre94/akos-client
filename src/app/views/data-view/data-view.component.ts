@@ -54,6 +54,7 @@ export class DataViewComponent implements OnInit {
     this.getDetailsService.getLoading().pipe(takeUntil(this.ngUnsubscribe)).subscribe((loading: boolean) => {
       if (!loading) {
         this.getDetailsResults = this.getDetailsService.getResults();
+        console.log('GET DETAILS', this.getDetailsResults);
         this.coefs = this.getDetailsResults?.coeff;
       }
     });
