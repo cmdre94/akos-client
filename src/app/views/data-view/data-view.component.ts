@@ -22,6 +22,11 @@ export class DataViewComponent implements OnInit {
   public getDetailsResults: GetDetails;
   public dateResults: String;
   public coefs: Coefficients;
+  public areaIncome: number;
+  public areaHouseAge: number;
+  public areaNumberOfRooms: number;
+  public areaNumberOfBedrooms: number;
+  public population: number;
 
   constructor(private getDetailsService: GetDetailsService, private router: Router) { }
 
@@ -54,8 +59,12 @@ export class DataViewComponent implements OnInit {
     this.getDetailsService.getLoading().pipe(takeUntil(this.ngUnsubscribe)).subscribe((loading: boolean) => {
       if (!loading) {
         this.getDetailsResults = this.getDetailsService.getResults();
-        console.log('GET DETAILS', this.getDetailsResults);
         this.coefs = this.getDetailsResults?.coeff;
+        this.areaIncome = this.coefs?.['Avg. Area Income'] ? Math.round(this.coefs['Avg. Area Income']) : null;
+        this.areaHouseAge = this.coefs?.['Avg. Area House Age'] ? Math.round(this.coefs['Avg. Area House Age']) : null;
+        this.areaNumberOfRooms = this.coefs?.['Avg. Area Number of Rooms'] ? Math.round(this.coefs['Avg. Area Number of Rooms']) : null;
+        this.areaNumberOfBedrooms = this.coefs?.['Avg. Area Number of Bedrooms'] ? Math.round(this.coefs['Avg. Area Number of Bedrooms']) : null;
+        this.population = this.coefs?.['Area Population'] ? Math.round(this.coefs['Area Population']) : null;
       }
     });
   }

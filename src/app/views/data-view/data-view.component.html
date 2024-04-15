@@ -1,4 +1,12 @@
 <div class="container">
+  <p>This is an example of how to perform mathematical operations on dates.  The most important part is to convert the date to milliseconds. </p>
+  <p>new Date(d)?.setDate(new Date(d)?.getDate()) where d is the date in 'yyyy-mm-dd' format</p>
+  <p>Once converted to milliseconds, you can perform mathematical operations and convert the result back to years, months, days, hours, or whatever is needed.</p>
+  <p>Here we want to know how many days in the past a specific day is in relation to today.  Using the code above set d to the current date and store in a variable named currentDate</p>
+  <p>currentDate = new Date(d)?.setDate(new Date(d)?.getDate())</p>
+  <p>Do the same for a previous date</p>
+  <p>previousDate = new Date(d)?.setDate(new Date(d)?.getDate()) where d is a date in the past</p>
+  <p>(currentDate - previousDate)/(24*60*60*1000) Convert from milliseconds to days to get the number of days in the past</p>
   <div class="mb-3">
     <ng-container *ngIf="dateResults">
       <div class="row">
@@ -28,25 +36,54 @@
   <app-spacing></app-spacing>
 </div>
 <div class="container">
+  <p>This proof of concept demonstrates making a price predicition by entering data and passing it to a model. The model calculates the input and returns a response.</p>
+  <p>Included in the response are metrics and the prediction. This can be used for other types of numeric predictions: stock price, salary, profit/loss, etc.</p>
   <ng-container *ngIf="getDetailsResults?.prediction">
     <div class="row">
       <h3>The price should be set at {{getDetailsResults?.prediction}}</h3>
     </div>
-    <div class="row">
-      <h4>Holding all other features fixed, a 1 unit increase in Avg. Area Income is associated with an increase of {{coefs?.['Avg. Area Income']}}</h4>
-    </div>
-    <div class="row">
-      <h4>Holding all other features fixed, a 1 unit increase in Avg. Area House Age is associated with an increase of {{coefs?.['Avg. Area House Age']}}</h4>
-    </div>
-    <div class="row">
-      <h4>Holding all other features fixed, a 1 unit increase in Avg. Area Number of Rooms is associated with an increase of {{coefs?.['Avg. Area Number of Rooms']}}</h4>
-    </div>  
-    <div class="row">
-      <h4>Holding all other features fixed, a 1 unit increase in Avg. Area Number of Bedrooms is associated with an increase of {{coefs?.['Avg. Area Number of Bedrooms']}}</h4>
-    </div>
-    <div class="row">
-      <h4>Holding all other features fixed, a 1 unit increase in Area Population is associated with an increase of {{coefs?.['Area Population']}}</h4>
-    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">All Other Features</th>
+          <th scope="col">Unit Increase</th>
+          <th scope="col">Metric</th>
+          <th scope="col">Associated Increase</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Fixed</th>
+          <td>1</td>
+          <td>Avg. Area Income</td>
+          <td>{{areaIncome}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fixed</th>
+          <td>1</td>
+          <td>Avg. Area House Age</td>
+          <td>{{areaHouseAge}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fixed</th>
+          <td>1</td>
+          <td>Avg. Area Number of Rooms</td>
+          <td>{{areaNumberOfRooms}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fixed</th>
+          <td>1</td>
+          <td>Avg. Area Number of Bedrooms</td>
+          <td>{{areaNumberOfBedrooms}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Fixed</th>
+          <td>1</td>
+          <td>Area Population</td>
+          <td>{{population}}</td>
+        </tr>
+      </tbody>
+    </table>
   </ng-container>
   <form [formGroup]="housingDataForm" (ngSubmit)="callGetDetails()">
     <div class="mb-3">

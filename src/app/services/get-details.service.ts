@@ -84,7 +84,6 @@ export class GetDetailsService {
    * @returns {void}
    */
   public call(data: object): void {
-    console.log('hit call function');
     // Checking optional parameters are blank or not, if blank assigning Default value
     if (!this.loading) {
       const serverHost: string = this.serverUrl + '/getDetails';
