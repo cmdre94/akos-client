@@ -118,9 +118,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container-bg {
-  background-image: url('../../../assets/DowntownDallasFromNorth.jpeg');
+  /*background-image: url('../../../assets/DowntownDallasFromNorth.jpeg');*/
   background-size: cover;
   background-position: center;
   display: flex;
-  color: #fff; /* Text color for contrast */
+  background-color: #fff; /* Text color for contrast */
 }
