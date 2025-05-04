@@ -13,7 +13,11 @@ export class WritingViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onView(): void {
-    this.router.navigate(['strugglesOfTranslation']);
+  public onView(view: Number): void {
+    if (view === 0) {
+      this.router.navigate(['strugglesOfTranslation']);
+    } else if (view === 1) {
+      this.router.navigate(['atLeastMakeItAdequate']);
+    }
   }
 }
