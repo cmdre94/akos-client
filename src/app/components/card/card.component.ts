@@ -12,6 +12,8 @@ export class CardComponent implements OnInit {
   @Input() public cardText2: string;
   @Input() public buttonText: string;
   @Input() public buttonText2: string;
+  @Input() public imageSrc: string;
+  @Input() public useImage: boolean = false;
   @Input() public parentFunction: Function;
   constructor() { }
 
